@@ -1,0 +1,10 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="TP-INTEGRADOR-FINAL-AnalisisSoft:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TP_INTEGRADOR_FINAL_AnalisisSoft_jar</output-path>
+    <root id="archive" name="TP-INTEGRADOR-FINAL-AnalisisSoft.jar">
+      <element id="module-output" name="TP-INTEGRADOR-FINAL-AnalisisSoft" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/Gestor_Libros.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/grupo_5_1.zip" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

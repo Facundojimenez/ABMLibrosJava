@@ -113,15 +113,18 @@ class ABMInterfaz extends JFrame {
 		getContentPane().add(lblIsbn);
 
 		JLabel lblTitulo = new JLabel("Titulo");
-		lblTitulo.setBounds(124, 54, 105, 15);
+//		lblTitulo.setBounds(124, 54, 105, 15);
+		lblTitulo.setBounds(124, 54, 120, 15);
 		getContentPane().add(lblTitulo);
 
 		JLabel lblAutor = new JLabel("Autor");
-		lblAutor.setBounds(238, 54, 105, 15);
+//		lblAutor.setBounds(238, 54, 105, 15);
+		lblAutor.setBounds(195, 54, 105, 20);
 		getContentPane().add(lblAutor);
 
 		JLabel lblEditorial = new JLabel("Editorial");
-		lblEditorial.setBounds(345, 54, 70, 15);
+//		lblEditorial.setBounds(345, 54, 70, 15);
+		lblEditorial.setBounds(345, 80, 70, 15);
 		getContentPane().add(lblEditorial);
 
 		JLabel lblEdicion = new JLabel("Edicion");
@@ -203,13 +206,13 @@ class ABMInterfaz extends JFrame {
 	 * Creo los listeners para hacer el handle de las distintas funcionalidades
 	 */
 	private void especificarListeners() {
-		btnBuscar.addActionListener(e -> buscar());
+//		btnBuscar.addActionListener(e -> buscar());
 		btnListar.addActionListener(e -> listar());
 		btnLimpiar.addActionListener(e -> limpiar());
 		btnOrdenar.addActionListener(e -> ordenar());
 		btnAgregar.addActionListener(e -> agregar());
 		btnEliminar.addActionListener(e -> eliminar());
-		btnModificar.addActionListener(e -> modificar());
+//		btnModificar.addActionListener(e -> modificar());
 	}
 
 	/*

@@ -117,22 +117,35 @@ public class LoginInterfaz {
 		String user = userField.getText();
 		String pass = new String(passwordField.getPassword());
 
-		/* valido que ninguno este vacio */
-		if(user.isEmpty() || pass.isEmpty()) {
-			JOptionPane.showMessageDialog(null, "Complete los campos por favor", "", JOptionPane.ERROR_MESSAGE);
-		} else {
-			Usuario usuario = new Usuario(user, pass);
+		if(user.isEmpty()){
+			JOptionPane.showMessageDialog(null, "Error: El campo \"usuario\" no puede estar vacio", "", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		if(pass.isEmpty()){
+			JOptionPane.showMessageDialog(null, "Error: El campo \"contraseña\" no puede estar vacio", "", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		if(user.length() < 4 || user.length() > 20){
+			JOptionPane.showMessageDialog(null, "Error: El campo \"usuario\" tiene que tener entre 4 como minimo y 20 como máximo", "", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
+		if(pass.length() < 4 || pass.length() > 20){
+			JOptionPane.showMessageDialog(null, "Error: El campo \"contraseña\" tiene que tener entre 4 como minimo y 20 como máximo", "", JOptionPane.ERROR_MESSAGE);
+			return;
+		}
 
-			/* si el login es valido, lo dejo pasar */
-			if(usuarioService.loginValido(usuario)) {
-				logService.logLoggearUser(user, true);
-				new ABMInterfaz().setVisible(true);
-				frame.dispose();
-			} else {
-				logService.logLoggearUser(user, false);
-				JOptionPane.showMessageDialog(null, "Usuario no valido", "", JOptionPane.ERROR_MESSAGE);
-			}
+		Usuario usuario = new Usuario(user, pass);
+		/* si el login es valido, lo dejo pasar */
+		if(usuarioService.loginValido(usuario)) {
+			logService.logLoggearUser(user, true);
+			new ABMInterfaz().setVisible(true);
+			frame.dispose();
+		} else {
+			logService.logLoggearUser(user, false);
+			JOptionPane.showMessageDialog(null, "Usuario repetido, intente con otro nombre", "", JOptionPane.ERROR_MESSAGE);
 		}
 
 	}
+
+
 }

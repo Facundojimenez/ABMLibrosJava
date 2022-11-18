@@ -18,7 +18,7 @@ class RegistroInterfaz {
 
 	private JDialog frame;
 	private JTextField userField;
-	private JPasswordField passwordField; 
+	private JPasswordField passwordField;
 	private UsuarioService usuarioService;
 	private LogService logService;
 	private Frame framePadre;
@@ -34,7 +34,7 @@ class RegistroInterfaz {
 	}
 
 	/**
-	 * 
+	 *
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
@@ -45,34 +45,34 @@ class RegistroInterfaz {
 		frame.setBounds(100, 100, 201, 196);
 		frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		/* usuario */
 		JLabel lblUsuario = new JLabel("Usuario:");
 		lblUsuario.setBounds(12, 11, 82, 20);
 		frame.getContentPane().add(lblUsuario);
-		
+
 		/* contrasena */
 		JLabel lblPass = new JLabel("Contraseña:");
 		lblPass.setBounds(12, 58, 92, 20);
 		frame.getContentPane().add(lblPass);
-		
+
 		userField = new JTextField();
 		userField.setBounds(12, 28, 161, 20);
 		frame.getContentPane().add(userField);
 		userField.setColumns(10);
-		
+
 		passwordField = new JPasswordField();
 		passwordField.setBounds(12, 77, 161, 20);
 		frame.getContentPane().add(passwordField);
-		
+
 		/* boton confirmar */
 		JButton btnConfirmar = new JButton("Confirmar");
 		btnConfirmar.setBackground( Constantes.COLOR_VERDE );
 		btnConfirmar.setForeground(Color.WHITE);
-		btnConfirmar.addActionListener(e -> registrar()); 
+		btnConfirmar.addActionListener(e -> registrar());
 		btnConfirmar.setBounds(38, 118, 103, 23);
 		frame.getContentPane().add(btnConfirmar);
-		
+
 		frame.setVisible(true);
 	}
 
@@ -83,13 +83,13 @@ class RegistroInterfaz {
 		/* obtener los datos */
 		String user = userField.getText();
 		String pass = new String(passwordField.getPassword());
-		
+
 		/* valida */
 		if(user.isEmpty() || pass.isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Complete los campos por favor", "", JOptionPane.ERROR_MESSAGE);
 		} else {
 			Usuario usuario = new Usuario(userField.getText(), new String(passwordField.getPassword()));
-			
+
 			/* si no se pudo registrar */
 			if(!usuarioService.registrarUsuario(usuario)) {
 				logService.logRegistrarUser(user, false);
@@ -101,6 +101,30 @@ class RegistroInterfaz {
 				frame.dispose();
 			}
 		}
-		
+
 	}
+
+
+//	private void registrar() {
+//		/* obtener los datos */
+//		String user = userField.getText();
+//		String pass = new String(passwordField.getPassword());
+//
+//		/* valida */
+//		if(user.isEmpty() || pass.isEmpty()) {
+//			JOptionPane.showMessageDialog(null, "Complete los campos por favor", "", JOptionPane.ERROR_MESSAGE);
+//		} else {
+//			Usuario usuario = new Usuario(userField.getText(), new String(passwordField.getPassword()));
+//
+//			if(existeUsuario(usuario)){
+//				JOptionPane.showMessageDialog(null, "El usuario ya existe", "", JOptionPane.ERROR_MESSAGE);
+//			}
+//			else{
+//				registarService.Registrar(user, true);
+//				JOptionPane.showMessageDialog(null, "Usuario registrado correctamente", "", JOptionPane.INFORMATION_MESSAGE);
+//			}
+//
+//		}
+//
+//	}
 }

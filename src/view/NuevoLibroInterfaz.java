@@ -57,74 +57,74 @@ class NuevoLibroInterfaz {
 		frame.setBounds(100, 100, 254, 439);
 		frame.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+
 		/* titulo */
 		JLabel lblCompleteLosCampos = new JLabel("Complete los campos:");
 		lblCompleteLosCampos.setFont(lblCompleteLosCampos.getFont().deriveFont(lblCompleteLosCampos.getFont().getStyle() | Font.BOLD));
 		lblCompleteLosCampos.setBounds(48, 11, 209, 14);
 		frame.getContentPane().add(lblCompleteLosCampos);
-		
+
 		txfISBN = new JTextField();
 		txfISBN.setToolTipText("");
 		txfISBN.setBounds(48, 52, anchoCampo, 20);
 		frame.getContentPane().add(txfISBN);
 		txfISBN.setColumns(10);
-		
+
 		/* isbn */
 		JLabel lblIsbn = new JLabel("ISBN:");
 		lblIsbn.setBounds(48, 38, anchoCampo, 14);
 		frame.getContentPane().add(lblIsbn);
-		
+
 		/* titulo */
 		JLabel lblTtulo = new JLabel("Título:");
 		lblTtulo.setBounds(48, 83, anchoCampo, 14);
 		frame.getContentPane().add(lblTtulo);
-		
+
 		txfTitulo = new JTextField();
 		txfTitulo.setBounds(48, 97, anchoCampo, 20);
 		frame.getContentPane().add(txfTitulo);
 		txfTitulo.setColumns(10);
-		
+
 		/* autor */
 		JLabel lblAutor = new JLabel("Autor:");
 		lblAutor.setBounds(48, 128, anchoCampo, 14);
 		frame.getContentPane().add(lblAutor);
-		
+
 		txfAutor = new JTextField();
 		txfAutor.setBounds(48, 142, anchoCampo, 20);
 		frame.getContentPane().add(txfAutor);
 		txfAutor.setColumns(10);
-		
+
 		/* editorial */
 		JLabel lblEditorial = new JLabel("Editorial:");
 		lblEditorial.setBounds(48, 173, anchoCampo, 14);
 		frame.getContentPane().add(lblEditorial);
-		
+
 		txfEditorial = new JTextField();
 		txfEditorial.setBounds(48, 187, anchoCampo, 20);
 		frame.getContentPane().add(txfEditorial);
 		txfEditorial.setColumns(10);
-		
+
 		/* edicion */
 		JLabel lblEdicion = new JLabel("Edición:");
 		lblEdicion.setBounds(48, 223, anchoCampo, 14);
 		frame.getContentPane().add(lblEdicion);
-		
+
 		txfEdicion = new JTextField();
 		txfEdicion.setBounds(48, 237, anchoCampo, 20);
 		frame.getContentPane().add(txfEdicion);
 		txfEdicion.setColumns(10);
-		
+
 		/* año */
-	 	JLabel lblAnioPublicacion = new JLabel("Año publicación:");
+		JLabel lblAnioPublicacion = new JLabel("Año publicación:");
 		lblAnioPublicacion.setBounds(48, 268, anchoCampo, 14);
 		frame.getContentPane().add(lblAnioPublicacion);
-		
+
 		txfAnioPublicacion = new JTextField();
 		txfAnioPublicacion.setBounds(48, 282, anchoCampo, 20);
 		frame.getContentPane().add(txfAnioPublicacion);
 		txfAnioPublicacion.setColumns(10);
-		
+
 		/* boton aceptar */
 		JButton btnAceptar = new JButton("Aceptar");
 		btnAceptar.setBackground( Constantes.COLOR_VERDE );
@@ -132,7 +132,7 @@ class NuevoLibroInterfaz {
 		btnAceptar.addActionListener(e -> agregar());
 		btnAceptar.setBounds(17, 346, 92, 20);
 		frame.getContentPane().add(btnAceptar);
-		
+
 		/* boton cancelar */
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBackground( Constantes.COLOR_ROJO );
@@ -140,7 +140,7 @@ class NuevoLibroInterfaz {
 		btnCancelar.addActionListener(e -> frame.dispose());
 		btnCancelar.setBounds(119, 346, 92, 20);
 		frame.getContentPane().add(btnCancelar);
-		
+
 		/*
 		 * Mensaje de error
 		 * Aparece cuando falla la validacion
@@ -152,10 +152,10 @@ class NuevoLibroInterfaz {
 		lblMensajeDeError.setBounds(-58, 322, 357, 14);
 		lblMensajeDeError.setVisible(false);
 		frame.getContentPane().add(lblMensajeDeError);
-		
+
 		frame.setVisible(true);
 	}
-	
+
 	/*
 	 * Agregar nuevo libro
 	 *
@@ -169,17 +169,17 @@ class NuevoLibroInterfaz {
 		} else {
 			/* todos los campos llenos */
 			String isbn = txfISBN.getText();
-			String titulo = txfTitulo.getText(); 
+			String titulo = txfTitulo.getText();
 			String autor = txfAutor.getText();
 			String editorial = txfEditorial.getText();
 			String edicion = txfEdicion.getText();
 			String anioPublicacion = txfAnioPublicacion.getText();
-			
+
 			Libro nuevo;
 			try {
 				/* creo un nuevo libro */
 				nuevo = new Libro(isbn, titulo, autor, editorial, edicion, anioPublicacion);
-				
+
 				/* guardo */
 				if(libroService.guardar(nuevo)) {
 					/* si pudo guardar */
@@ -202,10 +202,10 @@ class NuevoLibroInterfaz {
 				lblMensajeDeError.setVisible(true);
 			}
 
-			
+
 		}
 	}
-	
+
 	private boolean campoVacio() {
 		return  txfISBN.getText().isEmpty() 			||
 				txfAutor.getText().isEmpty() 			||

@@ -82,7 +82,7 @@ public class LibroDao {
 				String editorial = atributos[3];
 				String edicion = atributos[4];
 				String anioPublicacion = atributos[5];
-				
+
 				libros.add(new Libro(isbn, titulo, autor, editorial, edicion, anioPublicacion));
 			}
 			sc.close();
@@ -108,10 +108,10 @@ public class LibroDao {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	/**
 	 * Guardar el libro en la base de datos.
 	 * No guarda el libro si esta repetido su ISBN.
@@ -122,7 +122,7 @@ public class LibroDao {
 	public boolean guardar(Libro libro) {
 		BufferedWriter out;
 		BufferedWriter outBackup;
-		
+
 		if(libroValido(libro)) {
 			try {
 				out = new BufferedWriter(new FileWriter(decodedPath, true));
@@ -143,7 +143,7 @@ public class LibroDao {
 				JOptionPane.showMessageDialog(null, e.getMessage());
 			}
 		}
-		
+
 		return false;
 	}
 
@@ -174,7 +174,7 @@ public class LibroDao {
 
 		/* busco el libro a borrar */
 		for (Libro libro : libros) {
-			if(libro.obtenerISBN().equals(isbn)) 
+			if(libro.obtenerISBN().equals(isbn))
 				break;
 			i++;
 		}
@@ -318,7 +318,7 @@ public class LibroDao {
 			encodedBytes = Base64.getEncoder().encode(strNoEncriptada.getBytes("UTF-8"));
 		} catch (UnsupportedEncodingException e) {
 			e.printStackTrace();
-		} 
+		}
 
 		return new String(encodedBytes);
 	}

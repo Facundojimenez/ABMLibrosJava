@@ -38,6 +38,8 @@ public class LogService {
 	 * Las siguientes funciones hacen de intermediario con el DAO
 	 */
 
+
+
 	public void logLoggearUser(String user, boolean correcto) {
 		logDao.logLoggearUser(user, correcto);
 	}

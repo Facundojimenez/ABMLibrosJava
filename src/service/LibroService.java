@@ -1,5 +1,6 @@
 package service;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -87,6 +88,63 @@ public class LibroService {
 		
 		return coincidencia;
 	}
+
+
+//	private Libro agregar() throws Exception{
+//
+//		String isbn = txfISBN.getText();
+//		String titulo = txfTitulo.getText();
+//		String autor = txfAutor.getText();
+//		String editorial = txfEditorial.getText();
+//		String edicion = txfEdicion.getText();
+//		String anioPublicacion = txfAnioPublicacion.getText();
+//
+//		if(hayCamposVacios(isbn, titulo, autor, editorial, edicion,anioPublicacion)){
+//			throw new Exception("Hay campos vacios");
+//		}
+//
+//		if( isbn.length() != 10 && isbn.length() != 13 )
+//			throw new Exception("Longitud incorrecta del ISBN");
+//
+//		if( !esNumerico(isbn) )
+//			throw new Exception("ISBN es un campo numérico");
+//
+//		if( titulo.length() == 0 )
+//			throw new Exception("Campo Título vacío");
+//
+//		if( !esAlfanumerico(titulo) )
+//			throw new Exception("Título es un campo alfanumérico");
+//
+//		if( autor.length() == 0 )
+//			throw new Exception("Campo Autor vacío");
+//
+//		if( !esAlfabetico(autor) )
+//			throw new Exception("Autor es un campo alfabético");
+//
+//		if( editorial.length() == 0 )
+//			throw new Exception("Campo Editorial vacío");
+//
+//		if( !esAlfabetico(editorial) )
+//			throw new Exception("Editorial es un campo alfabético");
+//
+//		if( !esNumerico(edicion) )
+//			throw new Exception("Edición es un campo numérico");
+//
+//		if( !verificarRango(edicion, 1, 99))
+//			throw new Exception("Edicion fuera del rango 1-99");
+//
+//		if( edicion.length() > 2 )
+//			throw new Exception("Longitud incorrecta del numero de Edicion");
+//
+//		if( !esNumerico(anioPublicacion) )
+//			throw new Exception("Año de publicación es un campo numérico");
+//
+//		if( !verificarRango(anioPublicacion, 1900, 2022) )
+//			throw new Exception("Año de publicacion fuera del rango 1900-2022");
+//
+//		return new Libro(isbn, titulo, autor, editorial, edicion, anioPublicacion);
+//	}
+
 
 //	private boolean atributoEsIgualAValor(String atributo, String valor) {
 //		if (!valor.isEmpty() && !atributo.equalsIgnoreCase(valor)) {
